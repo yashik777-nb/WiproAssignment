@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WiproAssignment.Models.Student>
+@{
+    ViewBag.Title = "Students";
+}
+
+<h2>Students Data</h2>
+
+<table id="students" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Roll Number</th>
+            <th>Student Name</th>
+            <th>Standard</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.RollNo</td>
+                <td>@student.Sname</td>
+                <td>@student.Std</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    
+    <script>
+        $("document").ready(function () {
+            $("#students").DataTable({
+                paging: false,
+                search: false,
+            });
+            $("#students_filter").hide();
+        });
+    </script>
+}
+
